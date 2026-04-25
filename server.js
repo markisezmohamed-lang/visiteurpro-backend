@@ -124,8 +124,8 @@ app.post('/api/visitors/:id/photo', auth, upload.single('photo'), async (req, re
   }
 });
 
-// POST /api/visitors/:id/photo-base64 — photo depuis webcam (base64)
-app.post('/api/visitors/:id/photo-base64', auth, async (req, res) => {
+// POST /api/visitors/:id/photo-base64 — photo depuis webcam (base64) — public pour tablette
+app.post('/api/visitors/:id/photo-base64', async (req, res) => {
   const { image } = req.body; // "data:image/jpeg;base64,..."
   if (!image) return res.status(400).json({ error: 'Image base64 manquante' });
   try {
